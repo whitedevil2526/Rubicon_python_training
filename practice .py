@@ -343,3 +343,37 @@ string="classmate"
 substring="cla"
 result = issubsequence(string,substring)
 print(result)
+
+text="samarthsabale"
+if not text:
+    print("empty string")
+else:
+    for char in text.lower():
+        if char in("a","e","i","o","u"):
+            print(f"{char} is a vowel")
+        elif not char.isalpha():
+            print(f"{char} is not a lette")
+        else:
+            print(f"{char} is a consonant")
+
+month="february"
+month_31_days =("janurary","march","may","july","August","october","december")
+month_30_days = ("april","june","september","november")
+
+if month in month_31_days:
+    print(f"{month} has 31 days")
+elif month in month_30_days:
+    print(f"{month} has 30 days")
+else:
+    print(f"{month} has 28 days")
+
+a=3
+b=2
+c=1
+
+if a> b> c:
+    print("decreasing order")
+elif a < b < c:
+    print("increasing order")
+else:
+    print("number is neither increasing or decreasing")
