@@ -233,8 +233,113 @@ for i in range(3):
         print("inner loop",j)
 print("rest of the code")
 
+#continue
 for i in range(10):
     if(i == 5):
         continue
     print(i)
 print("rest of the code")
+
+#pass statement
+for i in range(10):
+    if(i == 5):
+        pass
+    print(i)
+print("rest of the code")
+
+#memory allocation
+str1="steekyshows"
+str2="Geekyshows"
+str3="python"
+str4=str3
+print("str1",str1,id(str1))
+print("str2",str2,id(str2))
+print("str3",str3,id(str3))
+print("str4",str4,id(str4))
+
+#comparing string
+
+#fstring 
+a=10
+b=20
+print(f"{a}")
+print(f"{a} {b}")
+print(f"{b} {a}")
+
+a="samarth"
+print(f"{a[::-1]}")
+
+st="RACECAR"
+str1= st[::-1]
+print(str1)
+if(st == str1):
+    print("palindrome")
+else:
+    print("not palindrome")
+
+#example 
+
+name="hello world"
+str1=name.upper()
+str2=name.title()
+str3=name.capitalize()
+str4=name.isupper()
+str5=name.isdigit()
+str6=name.isalpha()
+str7=name.isalnum()
+str8=name.lstrip()
+print(name)
+print(str1)
+print(str2)
+print(str3)
+print(str4)
+print(str5)
+print(str6)
+print(str7)
+print(str8)
+
+name="Geeky-shows"
+old="Geeky"
+new="New"
+a=('hello','how','are','you')
+b="Hi How Are You"
+str1=name.replace(old,new)
+str2=name.split('-')
+str3=" ".join(a)
+str4=name.startswith('Hi')
+str5=name.endswith('ye')
+print(name)
+print(str1)
+print(str2)
+print(str3)
+print(str4)
+print(str5)
+
+def issubsequence(string, substring):
+    i=0
+    j=0
+    while i< len(substring) and j< len(string):
+        if substring[i] == string[j]:
+            i += 1
+        j +=1
+    return i == len(substring)
+
+string="abcdefghi"
+substring="adi"
+result = issubsequence(string,substring)
+print(result)
+
+
+def issubsequence(string, substring):
+    a=0
+    b=0
+    while a>len(substring) and b>len(string):
+        if substring[a] == string[b]:
+            a +=1
+        b+=1
+    return a == len(substring)
+
+string="classmate"
+substring="cla"
+result = issubsequence(string,substring)
+print(result)
