@@ -128,3 +128,72 @@ a = [9,5,4,3,6,7,[[12,13,14],[15,16]]]
 print(a[-1][-2][-1])
 print(a[-1][-2])
 print(a[-5])
+
+#list multiplication to print multiple element
+a=[1,2,3]
+print(a)
+result=a*3
+print(result)
+
+a=[10,20,30,40]
+b=a
+print("A",a)
+print("B",b)
+
+a=[10,20,30,40]
+b=a.copy()
+print("A",a)
+print("B",b)
+print("After modifying:")
+a[1]=55
+print("A",a)
+print("B",b)
+
+#sort() and sorted()
+my_list = [5, 2, 9, 1]
+my_list.sort()  # In-place sorting
+print(my_list)  # Output: [1, 2, 5, 9]
+my_tuple = (5, 2, 9, 1)
+sorted_tuple = sorted(my_tuple)  # Creates a new sorted list from tuple
+print(sorted_tuple)
+
+#simillar list operation 
+a=[5,4,3,5,3,9,8,7,6,7]
+b= []
+for i in range(len(a)):
+    if ((a.count(a[i]))==1):
+        b.append(a[i])
+print(b)
+
+a=[5,4,3,5,3,9,8,7,6,7]
+b= []
+for i in range(len(a)):
+    if ((a.count(a[i]))==2):
+        b.append(a[i])
+print(b)
+
+
+#nestedlist 
+#modification
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Modify nested list by adding 10 to each element in sub-lists
+for i in range(len(nested_list)):
+    for j in range(len(nested_list[i])):
+        nested_list[i][j] += 10
+print(nested_list)
+
+names_score =[['amol',10],['julie',20],['rahul',10],['amit',50],['arjun',40],['ketan',20]] 
+
+scores=[]
+
+for stud in names_score:
+    scores.append(stud[1])
+scores=sorted(set(scores))
+print(scores)
+second_lowest=scores[1]
+print(second_lowest)
+name_second_lowest=[]
+for stud in names_score:
+    if stud[1] == second_lowest:
+        name_second_lowest.append(stud[0])
+print(name_second_lowest)
