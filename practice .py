@@ -1,4 +1,5 @@
 #DAY 1
+#string
 
 #a=10
 #b=20
