@@ -92,3 +92,39 @@ if(number1>number2):
     print("grater number is:",number1)
 else:
     print("greate number is:",number2)
+
+list1=['9','8','7','6','5','4','3','2','1']
+r1=map(int,list1)
+print(r1)
+
+list1 = ['9', '8', '7', '6', '5', '4', '3', '2', '1']
+r1 = map(int, list1)
+r1_list = list(r1)
+print(r1_list)
+
+list=[10,50,40,90]
+list.reverse()
+r1=list.index(10)
+print(list)
+print(r1)
+
+#count
+a=[10,20,30,10,40,10]
+num=a.count(10)
+a.clear()
+a.sort()
+print(num)
+print(a)
+
+list=[101,102,103,104,105,106,107,108]
+print("last 4 element")
+d=x[-4:-1]
+for i in d:
+    print(i)
+print(d)
+
+#negative index of multiple list
+a = [9,5,4,3,6,7,[[12,13,14],[15,16]]]
+print(a[-1][-2][-1])
+print(a[-1][-2])
+print(a[-5])
