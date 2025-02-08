@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Orders</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for cards and table */
+        .card-body {
+            padding: 20px;
+        }
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .add-to-cart-btn {
+            background-color: #28a745;
+            border: none;
+            font-weight: bold;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #218838;
+        }
+        .table th {
+            text-align: center;
+        }
+        .badge {
+            padding: 8px 12px;
+            font-size: 0.875rem;
+            border-radius: 10px;
+        }
+        /* Adding spacing between sections */
+        .section-title {
+            margin-top: 50px;
+            text-align: center;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .order-table {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container my-5">
+        <!-- Products Section -->
+        <h1 class="section-title">Product List</h1>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h5 class="product-name">{{ product.name }}</h5>
+                        <p class="card-text text-muted">{{ product.desc|truncatewords:15 }}</p>
+                        <p class="card-text text-success fw-bold">Price: ${{ product.price }}</p>
+                        <!-- Add to Cart Button -->
+                        <a href="#" class="btn btn-primary w-100 add-to-cart-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Orders Section -->
+        <h1 class="section-title text-danger">Orders</h1>
+        <table class="table table-bordered table-striped order-table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Customer</th>
+                    <th>Email</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.product.name }}</td>
+                    <td>{{ order.customer_name }}</td>
+                    <td>{{ order.customer_email }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>${{ order.total_price }}</td>
+                    <td>
+                        <span class="badge {% if order.order_status == 'Pending' %}bg-warning 
+                                          {% elif order.order_status == 'Shipped' %}bg-info
+                                          {% elif order.order_status == 'Delivered' %}bg-success
+                                          {% else %}bg-danger{% endif %}">
+                            {{ order.order_status }}
+                        </span>
+                    </td>
+                    <td>{{ order.order_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!---form section--->
+<h1>Creates a new product </h1>
+    <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">submit</button>
+    </form>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
