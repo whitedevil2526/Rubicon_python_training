@@ -48,3 +48,53 @@ def find_max_value(lst):
     return max_value
 number = [3,7,2,9,5]
 print(find_max_value(number))
+
+#define function with argument or without argument
+
+def add():
+    x=20
+    y=30
+    c=x+y
+    return c
+sum = add()
+print(sum)
+
+
+def add(y):
+    x=10
+    c=x+y
+    d=y-x
+    return c,d,
+
+
+def disp():
+    def show():
+        return "show function:"
+    result = show() + "display function"
+    return result
+print(disp())
+
+def disp(st):
+    def show():
+        return "show function"
+    result = show() + st + "disp function"
+    return result
+print(disp("geekyshow"))
+
+def show(name,age):
+    print(f"name:{name} age:{age}")
+show(age = 62, name = "geekyshow")
+
+def show(name,age=20):
+    print(f"name : {name} age : {age}")
+show(name = "geekyshows")
+
+def add(*num):
+    z=num[0]+num[1]+num[2]
+    print("addition:",z,num[3])
+add(5,2,4,"zing")
+
+def add(x ,*num):
+    z= x + num[0] + num[1]
+    print("addition:",z)
+add(5,2,4)
