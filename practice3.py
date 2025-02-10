@@ -49,6 +49,7 @@ def find_max_value(lst):
 number = [3,7,2,9,5]
 print(find_max_value(number))
 
+
 #define function with argument or without argument
 
 def add():
@@ -98,3 +99,29 @@ def add(x ,*num):
     z= x + num[0] + num[1]
     print("addition:",z)
 add(5,2,4)
+
+def add(x,y,**num):
+    z=x + num["a"]+num["b"]
+    print("addition:",z)
+add(3,6,a=5,b=6)
+
+a=50
+def show():
+    x=10
+    print(x)
+    print(a)
+show()
+
+def numbers(n):
+    if n <= 20:
+        print(n)
+        numbers(n + 1)
+numbers(1)
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+result = factorial(5)
+print(result)
