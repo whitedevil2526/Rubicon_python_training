@@ -216,3 +216,22 @@ class Circle:
 
 circle1 = Circle(4)
 circle1.display_info()
+
+
+class Employee:
+    def __init__(self, name, salary, bonus=500):
+        self.name = name
+        self._salary = salary
+        self.__bonus = bonus
+
+    def display_details(self):
+        return f"Name: {self.name}, Salary: {self._salary}"
+
+    def get_bonus(self):
+        return self.__bonus
+
+emp = Employee("Alice", 50000)
+print(emp.display_details())
+print(emp._salary)
+print(emp.get_bonus())
+
