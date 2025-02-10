@@ -235,3 +235,78 @@ print(emp.display_details())
 print(emp._salary)
 print(emp.get_bonus())
 
+class Bank:
+    def __init__(self):
+        self.accounts = {}
+
+    def add_acnt(self, acnt_num, initial_bal):
+        if acnt_num not in self.accounts:
+            self.accounts[acnt_num] = initial_bal
+            print(f"Account {acnt_num} created with initial balance: {initial_bal}")
+        else:
+            print(f"Account {acnt_num} already exists...")
+
+    def deposit(self):
+        acnt_num = input("Enter account number to deposit into: ")
+        amount = float(input("Enter amount to deposit: "))
+        if acnt_num in self.accounts:
+            self.accounts[acnt_num] += amount
+            print(f"Deposited {amount} into account {acnt_num}")
+            print(self.accounts)
+        else:
+            print(f"Account {acnt_num} does not exist...")
+
+    def withdraw(self, acnt_num, amount):
+        if acnt_num in self.accounts:
+            self.accounts[acnt_num] -= amount
+            print(f"Withdrawn {amount} from account {acnt_num}")
+            print(self.accounts)
+        else:
+            print(f"Account {acnt_num} does not exist...")
+    def display_balance(self, acnt_num):
+        if acnt_num in self.accounts:
+            print(f"Balance for account {acnt_num}: {self.accounts[acnt_num]}")
+        else:
+            print(f"Account {acnt_num} does not exist...")
+
+bank = Bank()
+bank.add_acnt('123456789', 1000000)
+bank.deposit()
+bank.withdraw('123456789', 20000)
+bank.withdraw('123456789', 20000)
+bank.display_balance('123456789')
+
+class HotelBillManager:
+    def __init__(self):
+        self.hotel_bills = {}
+
+    def add_hotel_bill(self):
+        bill_id = input("Enter bill ID: ")
+        amount = float(input("Enter bill amount: "))
+        gst_rate = float(input("Enter GST rate: "))
+        if bill_id not in self.hotel_bills:
+            gst_amount = amount * gst_rate / 100
+            total_amount = amount + gst_amount
+            self.hotel_bills[bill_id] = {
+                'amount': amount,
+                'gst_rate': gst_rate,
+                'gst_amount': gst_amount,
+                'total_amount': total_amount
+            }
+            print(f"Hotel bill {bill_id} added with amount: {amount}, GST: {gst_amount}, Total: {total_amount}")
+        else:
+            print(f"Hotel bill {bill_id} already exists...")
+
+    def split_bill(self):
+        bill_id = input("Enter bill ID to split: ")
+        num_people = int(input("Enter the number of people: "))
+        if bill_id in self.hotel_bills:
+            total_amount = self.hotel_bills[bill_id]['total_amount']
+            split_amount = total_amount / num_people
+            print(f"Hotel bill {bill_id} split among {num_people} people: {split_amount} each")
+        else:
+            print(f"Hotel bill {bill_id} does not exist...")
+
+hotel_manager = HotelBillManager()
+hotel_manager.add_hotel_bill()
+hotel_manager.split_bill()
