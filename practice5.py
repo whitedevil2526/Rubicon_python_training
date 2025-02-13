@@ -35,10 +35,8 @@ print(result)
 
 #higher order
 list_a = [1,2,3,4,5]
-
 def square(x):
     return x**2
-
 new_list = list(map(square,list_a))
-
 print(new_list)
+
